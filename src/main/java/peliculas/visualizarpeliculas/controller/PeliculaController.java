@@ -62,7 +62,7 @@ public class PeliculaController {
             // Película no encontrada, se retorna con código 404 NOT FOUND
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
-                    .body("No se encontró ninguna película con el ID: " + id);
+                    .body("No se encontró la pelicula");
         }
     }
 }
