@@ -1,13 +1,13 @@
-package peliculas.visualizarpeliculas;
+package clase.semana4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VisualizarpeliculasApplication {
+public class Semana4Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VisualizarpeliculasApplication.class, args);
+		SpringApplication.run(Semana4Application.class, args);
 	}
 
 }

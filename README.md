@@ -13,25 +13,6 @@ GET http://localhost:8080/peliculas
 # Obtener película por ID
 GET http://localhost:8080/peliculas/{id}
 
-# Ejemplo de respuesta
-
-json{
-  "id": 1,
-  "titulo": "El Señor de los Anillos: La Comunidad del Anillo",
-  "año": 2001,
-  "director": "Peter Jackson",
-  "genero": "Fantasía / Aventura",
-  "sinopsis": "Un hobbit llamado Frodo hereda un anillo mágico..."
-}
-
-# Películas disponibles
-ID      / TITULO
-1          El Señor de los Anillos: La Comunidad del Anillo
-2          Interestelar
-3          El Padrino
-4          Parásito
-5          Coco
-6          El Club de la Pelea
 
 
 Cómo ejecutar
