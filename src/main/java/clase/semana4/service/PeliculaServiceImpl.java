@@ -8,9 +8,9 @@ import clase.semana4.repository.PeliculaRepository;
 
 import java.util.List;
 import java.util.Optional;
+
 /**
  * Servicio que gestiona la lógica de negocio relacionada con las películas.
- * 
  */
 @Service
 public class PeliculaServiceImpl implements PeliculasService {
@@ -20,22 +20,40 @@ public class PeliculaServiceImpl implements PeliculasService {
 
     @Override
     public List<Pelicula> getAllPeliculas() {
-         return peliculaRepository.findAll(); 
+        return peliculaRepository.findAll();
     }
 
     @Override
     public Optional<Pelicula> getPeliculaById(long id) {
-         return peliculaRepository.findById(id); 
+        return peliculaRepository.findById(id);
     }
 
     @Override
-    public Pelicula createPelicula(Pelicula pelicula) { 
-        return peliculaRepository.save(pelicula); 
+    public Pelicula createPelicula(Pelicula pelicula) {
+        return peliculaRepository.save(pelicula);
     }
 
     @Override
-    public Pelicula updatePelicula(long id, String titulo, String anio, String director, String genero, String sinopsis) { return null; }
+    public Pelicula updatePelicula(long id, String titulo, String anio, String director, String genero, String sinopsis) {
+        if (peliculaRepository.existsById(id)) {
+            Pelicula pelicula = new Pelicula();
+            pelicula.setId(id);
+            pelicula.setTitulo(titulo);
+            pelicula.setAnio(anio);
+            pelicula.setDirector(director);
+            pelicula.setGenero(genero);
+            pelicula.setSinopsis(sinopsis);
+            return peliculaRepository.save(pelicula);
+        } else {
+            return null;
+        }
+    }
 
     @Override
-    public void deletePelicula(long id) {}
+    public void deletePelicula(long id) {
+        if (peliculaRepository.existsById(id)) {
+            peliculaRepository.deleteById(id);
+        } 
+            
+    }
 }

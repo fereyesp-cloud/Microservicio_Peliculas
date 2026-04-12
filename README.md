@@ -12,6 +12,14 @@ Maven
 GET http://localhost:8080/peliculas
 # Obtener película por ID
 GET http://localhost:8080/peliculas/{id}
+# agregar pelicula
+post http://localhost:8080/peliculas
+# eliminar pelicula
+DELETE http://localhost:8080/peliculas/{ID}
+# actualizar pelicula
+PUT PUT http://localhost:8080/peliculas/{ID}
+
+
 
 
 
