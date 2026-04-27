@@ -119,7 +119,3 @@ Para ejecutar las pruebas:
 ./mvnw test
 ```
 
----
-
-## 📁 Estructura del proyecto
-
