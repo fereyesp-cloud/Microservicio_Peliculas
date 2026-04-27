@@ -1,38 +1,125 @@
-Microservicio de Películas 🎬
-Microservicio desarrollado en Spring Boot que proporciona información sobre películas a través de una API REST.
+# 🎬 Microservicio de Películas
 
-# Tecnologías
-Java 17
-Spring Boot 3.2.0
-Maven
+Microservicio desarrollado con **Spring Boot** que proporciona información básica sobre películas. Implementa una API REST con DTOs, validaciones, HATEOAS y pruebas unitarias.
 
-# Endpoints disponibles
+---
 
-# Obtener todas las películas
-GET http://localhost:8080/peliculas
-# Obtener película por ID
-GET http://localhost:8080/peliculas/{id}
-# agregar pelicula
-post http://localhost:8080/peliculas
-# eliminar pelicula
-DELETE http://localhost:8080/peliculas/{ID}
-# actualizar pelicula
-PUT PUT http://localhost:8080/peliculas/{ID}
+## 🛠️ Tecnologías utilizadas
 
+- Java 21
+- Spring Boot 3.4.4
+- Spring Data JPA
+- Spring HATEOAS
+- Oracle Database
+- Lombok
+- JUnit 5 + Mockito
 
+---
 
+## ▶️ Cómo ejecutar el proyecto
 
-
-Cómo ejecutar
-# Clonar el repositorio
-git clone <url-del-repositorio>
-
-# Entrar al directorio
-cd microservicio-peliculas
-
-# Ejecutar con Maven
+```bash
 ./mvnw spring-boot:run
-El servicio estará disponible en: http://localhost:8080
-# Manejo de errores
-Si se consulta un ID que no existe, el servicio retorna un 404 Not Found con el mensaje:
-No se encontró ninguna película con el ID: {id}
+```
+
+La aplicación estará disponible en: `http://localhost:8080`
+
+---
+
+## 📋 Endpoints disponibles
+
+### 🔵 GET `/peliculas`
+Obtiene la lista de todas las películas registradas.
+
+- **Método:** `GET`
+- **URL:** `http://localhost:8080/peliculas`
+- **Respuesta exitosa:** `200 OK`
+
+---
+
+### 🔵 GET `/peliculas/{id}`
+Obtiene una película específica por su ID.
+
+- **Método:** `GET`
+- **URL:** `http://localhost:8080/peliculas/{id}`
+- **Parámetro:** `id` — identificador de la película
+- **Respuesta exitosa:** `200 OK`
+- **Respuesta si no existe:** `404 Not Found`
+
+
+---
+
+### 🟢 POST `/peliculas`
+Crea una nueva película.
+
+- **Método:** `POST`
+- **URL:** `http://localhost:8080/peliculas`
+- **Content-Type:** `application/json`
+- **Respuesta exitosa:** `201 Created`
+
+**Ejemplo de body:**
+```json
+{
+  "titulo": "El Padrino",
+  "anio": "1972",
+  "director": "Francis Ford Coppola",
+  "genero": "Crimen",
+  "sinopsis": "La historia de la familia mafiosa Corleone y su lucha por el poder."
+}
+```
+
+---
+
+### 🟡 PUT `/peliculas/{id}`
+Actualiza una película existente.
+
+- **Método:** `PUT`
+- **URL:** `http://localhost:8080/peliculas/{id}`
+- **Parámetro:** `id` — identificador de la película
+- **Content-Type:** `application/json`
+- **Respuesta exitosa:** `200 OK`
+- **Respuesta si no existe:** `404 Not Found`
+
+**Ejemplo de body:**
+```json
+{
+  "titulo": "El Padrino",
+  "anio": "1972",
+  "director": "Francis Ford Coppola",
+  "genero": "Drama",
+  "sinopsis": "Historia actualizada de la familia Corleone."
+}
+```
+---
+
+### 🔴 DELETE `/peliculas/{id}`
+Elimina una película por su ID.
+
+- **Método:** `DELETE`
+- **URL:** `http://localhost:8080/peliculas/{id}`
+- **Parámetro:** `id` — identificador de la película
+- **Respuesta exitosa:** `204 No Content`
+
+---
+---
+
+## 🧪 Pruebas unitarias
+
+El proyecto incluye pruebas unitarias en tres capas:
+
+| Clase                      | Descripción                                      |
+|----------------------------|--------------------------------------------------|
+| `PeliculaTest`             | Pruebas sobre la entidad Pelicula (getters/setters) |
+| `PeliculaServiceTest`      | Pruebas del servicio con Mockito                 |
+| `PeliculaControllerTest`   | Pruebas del controller con MockMvc               |
+
+Para ejecutar las pruebas:
+
+```bash
+./mvnw test
+```
+
+---
+
+## 📁 Estructura del proyecto
+
